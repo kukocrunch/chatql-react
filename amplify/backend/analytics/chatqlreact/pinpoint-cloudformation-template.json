@@ -81,7 +81,6 @@
                            "Ref": "roleName"
                         }, 
                         {
-
                             "Fn::Join": [
                                 "",
                                 [
@@ -94,7 +93,7 @@
                                   }
                                 ]
                             ]
-                        },       
+                        }       
                     ]
                 },
                 "AssumeRolePolicyDocument": {
@@ -183,7 +182,7 @@
                                 "               Name: appName",
                                 "           }",
                                 "       };",
-                                "       return pinpoint.createApp(params).promise()",
+                                "       pinpoint.createApp(params).promise()",
                                 "           .then((res) => {",
                                 "               responseData = res.ApplicationResponse;",
                                 "               response.send(event, context, response.SUCCESS, responseData);",
@@ -200,7 +199,7 @@
                     }
                 },
                 "Handler": "index.handler",
-                "Runtime": "nodejs6.10",
+                "Runtime": "nodejs10.x",
                 "Timeout": "300",
                 "Role": {
                     "Fn::GetAtt": [
